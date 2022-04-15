@@ -28,7 +28,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        arch: ['amd64', 'x86']
+        arch: ['amd64', 'arm64']
 
     permissions:
       contents: read

@@ -27,8 +27,8 @@ jobs:
   build:
     strategy:
       matrix:
-        runtime: [ linux-arm64 ]
-#        arch: ['x86-64', 'arm64']
+        runtime: [ linux-x64 ]
+        # arch: [ 'arm64' ]
         include:
         - runtime: linux-arm64
           os: ubuntu-latest

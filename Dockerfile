@@ -2,8 +2,6 @@
 
 FROM python:3.10.4-slim-buster as builder
 
-ENV DEBIAN_FRONTEND=noninteractive
-
 # Install dependencies
 RUN apt-get update \
   && apt-get install -y \
@@ -35,8 +33,7 @@ FROM builder
 
 # https://dist.ipfs.io/go-ipfs/v0.12.0
 ENV IPFS_VERSION=0.12.0
-ENV IPFS_ARCH=arm64
-RUN wget https://dist.ipfs.io/go-ipfs/v0.12.0/go-ipfs_v${IPFS_VERSION}_linux-${IPFS_ARCH}.tar.gz && \
+RUN export IPFS_ARCH=$(dpkg --print-architecture); echo ${IPFS_ARCH}; wget https://dist.ipfs.io/go-ipfs/v0.12.0/go-ipfs_v${IPFS_VERSION}_linux-${IPFS_ARCH}.tar.gz && \
     tar -xvzf go-ipfs_v${IPFS_VERSION}_linux-${IPFS_ARCH}.tar.gz && \
     cd go-ipfs && \
     bash install.sh \

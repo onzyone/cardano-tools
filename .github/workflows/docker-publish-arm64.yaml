@@ -30,7 +30,7 @@ jobs:
         runtime: [ linux-x64 ]
         # arch: [ 'arm64' ]
         include:
-        - runtime: linux-arm64
+        - runtime: linux-x64
           os: ubuntu-latest
 
     runs-on: ${{ matrix.os }}

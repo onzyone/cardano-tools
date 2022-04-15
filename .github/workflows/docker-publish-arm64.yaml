@@ -1,4 +1,4 @@
-name: Docker
+name: Docker Arm64
 
 # This workflow uses actions that are not certified by GitHub.
 # They are provided by a third-party and are governed by
@@ -27,11 +27,9 @@ jobs:
   build:
     strategy:
       matrix:
-        runtime: [ linux-x64, linux-arm64 ]
+        runtime: [ linux-arm64 ]
 #        arch: ['x86-64', 'arm64']
         include:
-        - runtime: linux-x64
-          os: ubuntu-latest
         - runtime: linux-arm64
           os: ubuntu-latest
 
@@ -85,7 +83,7 @@ jobs:
         uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
         with:
           context: .
-          platforms: linux/amd64,linux/arm64
+          platforms: linux/arm64
           push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}

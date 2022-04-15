@@ -28,10 +28,12 @@ jobs:
     strategy:
       matrix:
         runtime: [ linux-x64, linux-arm64 ]
-        arch: ['x86-64', 'arm64']
+#        arch: ['x86-64', 'arm64']
         include:
+
         - runtime: linux-x64
           os: ubuntu-latest
+
         - runtime: linux-arm64
           os: ubuntu-latest
 

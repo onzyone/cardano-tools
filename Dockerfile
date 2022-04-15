@@ -2,42 +2,7 @@
 
 FROM python:3.10.4-slim-buster as builder
 
-# Install dependencies
-RUN apt-get update
-#  && \
-#   apt-get install -y \
-#     autoconf \
-#     automake \
-#     build-essential \
-#     g++ \
-#     git \
-#     jq \
-#     libffi-dev \
-#     libgmp-dev \
-#     libncursesw5 \
-#     libnuma-dev \
-#     libssl-dev \
-#     libsystemd-dev \
-#     libtinfo-dev \
-#     libtool \
-#     llvm \
-#     make \
-#     pkg-config \
-#     tmux \
-#     wget \
-#     zlib1g-dev
-
-# # Install Libsodium
-# WORKDIR /src
-# RUN git clone https://github.com/input-output-hk/libsodium
-# WORKDIR libsodium
-# RUN git checkout 66f017f1
-# RUN ./autogen.sh \
-#   && ./configure \
-#   && make install
-
-# ENV LD_LIBRARY_PATH="/usr/local/lib"
-# ENV PKG_CONFIG_PATH="/usr/local/lib/pkgconfig"
+RUN apt-get update && apt-get install -y wget
 
 ## git@github.com:tdiesler/nessus-cardano.git
 ## https://hub.docker.com/r/nessusio/cardano-node

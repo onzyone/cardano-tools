@@ -31,10 +31,9 @@ TODO: <https://github.com/sigstore/cosign>
     # or with cardano-wallet cli (via docker run)
     docker run --network host --rm inputoutput/cardano-wallet network information
     # or with cardano-cli
-    docker run --rm -v spike-cardano-api_node-ipc:/node-ipc ghcr.io/onzyone/cordano-tools query tip --testnet-magic 1097911063
+    docker run --rm -v spike-cardano-api_node-ipc:/node-ipc ghcr.io/onzyone/cardano-tools query tip --testnet-magic 1097911063
     ```
 1. curl wallets
     ```bash
     curl -s http://localhost:8091/v2/wallets | jq
     ```
-

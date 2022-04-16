@@ -25,15 +25,7 @@ env:
 
 jobs:
   build:
-    strategy:
-      matrix:
-        runtime: [ linux-x64 ]
-        # arch: [ 'arm64' ]
-        include:
-        - runtime: linux-x64
-          os: ubuntu-latest
-
-    runs-on: ${{ matrix.os }}
+    runs-on: ubuntu-latest
 
     permissions:
       contents: read

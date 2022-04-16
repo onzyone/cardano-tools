@@ -45,8 +45,8 @@ RUN ./autogen.sh \
   && ./configure \
   && make install
 
-## git@github.com:tdiesler/nessus-cardano.git
-## https://hub.docker.com/r/nessusio/cardano-node
+# https://github.com/tdiesler/nessus-cardano
+# https://hub.docker.com/r/nessusio/cardano-node
 # nessusio/cardano-node:1.34.1
 # DIGEST:sha256:e9beb663ae9a90e46437bcc8eedc82c68e707f9782f88673f9f451ce0a2c445d
 

@@ -62,21 +62,6 @@ RUN apt-get update && \
 
 ENV DEBIAN_FRONTEND=noninteractive
 
-# libsodium lib
-ENV LD_LIBRARY_PATH="/usr/local/lib"
-ENV PKG_CONFIG_PATH="/usr/local/lib/pkgconfig"
-
-# COPY --from=builder /usr/local/include/sodium/ /usr/local/include/
-# COPY --from=builder /usr/local/include/sodium.h /usr/local/include/
-
-COPY --from=builder /usr/local/lib/libsodium.a /usr/local/lib/
-COPY --from=builder /usr/local/lib/libsodium.la /usr/local/lib/
-COPY --from=builder /usr/local/lib/libsodium.so.23.3.0 /usr/local/lib/
-RUN ln -s /usr/local/lib/libsodium.so.23.3.0 /usr/local/lib/libsodium.so.23
-RUN ln -s /usr/local/lib/libsodium.so.23.3.0 /usr/local/lib/libsodium.so
-
-COPY --from=builder /usr/local/lib/pkgconfig/libsodium.pc /usr/local/lib/pkgconfig/
-
 # IPFS
 COPY --from=builder /usr/local/bin/ipfs /usr/local/bin/
 

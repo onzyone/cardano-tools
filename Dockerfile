@@ -36,14 +36,14 @@ RUN export IPFS_ARCH=$(dpkg --print-architecture); echo ${IPFS_ARCH}; wget https
     rm go-ipfs_v${IPFS_VERSION}_linux-${IPFS_ARCH}.tar.gz \
     ipfs init --profile server
 
-# Install Libsodium
-WORKDIR /src
-RUN git clone https://github.com/input-output-hk/libsodium
-WORKDIR libsodium
-RUN git checkout 66f017f1
-RUN ./autogen.sh \
-  && ./configure \
-  && make install
+# # Install Libsodium
+# WORKDIR /src
+# RUN git clone https://github.com/input-output-hk/libsodium
+# WORKDIR libsodium
+# RUN git checkout 66f017f1
+# RUN ./autogen.sh \
+#   && ./configure \
+#   && make install
 
 # https://github.com/tdiesler/nessus-cardano
 # https://hub.docker.com/r/nessusio/cardano-node
@@ -54,6 +54,11 @@ FROM nessusio/cardano-node:1.34.1 as prebuilt
 
 ### run
 FROM python:3.10.4-slim-buster
+
+RUN apt-get update && \
+  apt-get install -y \
+    libsodium-dev \
+    libnuma-dev
 
 ENV DEBIAN_FRONTEND=noninteractive
 

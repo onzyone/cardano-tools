@@ -18,7 +18,7 @@ TODO: <https://github.com/sigstore/cosign>
     Select the `delete:packages` scope to delete container images.
     ```
 1. save token someplace safe and then use it to log into docker `cat ~/docker_pat| docker login https://ghcr.io -u onzyone --password-stdin`
-1. `docker pull ghcr.io/onzyone/cordano-tools:<branch>`
+1. `docker pull ghcr.io/onzyone/cardano-tools:<branch>`
 
 ## validate
 
@@ -31,7 +31,7 @@ TODO: <https://github.com/sigstore/cosign>
     # or with cardano-wallet cli (via docker run)
     docker run --network host --rm inputoutput/cardano-wallet network information
     # or with cardano-cli
-    docker run --rm -v spike-cardano-api_node-ipc:/node-ipc ghcr.io/onzyone/cardano-tools query tip --testnet-magic 1097911063
+    docker run --rm -v spike-cardano-api_node-ipc:/node-ipc ghcr.io/onzyone/cardano-tools:main query tip --testnet-magic 1097911063
     ```
 1. curl wallets
     ```bash

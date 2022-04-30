@@ -23,7 +23,6 @@ RUN apt-get update && \
     llvm \
     make \
     pkg-config \
-    tmux \
     wget \
     zlib1g-dev
 
@@ -57,6 +56,8 @@ FROM python:3.10.4-slim-buster
 
 RUN apt-get update && \
   apt-get install -y \
+    direnv \
+    jq \
     libsodium-dev \
     libnuma-dev
 

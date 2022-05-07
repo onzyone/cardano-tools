@@ -60,7 +60,8 @@ RUN apt-get update && \
     jq \
     watch \
     libsodium-dev \
-    libnuma-dev
+    libnuma-dev \
+    xxd
 
 ENV DEBIAN_FRONTEND=noninteractive
 
